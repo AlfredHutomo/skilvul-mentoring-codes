@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Manusia</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1>Pendataan Manusia</h1>
+        <form class="form-utama">
+          <div class="form-control">
+            <label for="firstName">Nama depan</label>
+            <input type="text" id="firstName" placeholder="John" />
+          </div>
+          <div class="form-control">
+            <label for="lastName">Nama belakang</label>
+            <input type="text" id="lastName" placeholder="Doe" />
+          </div>
+          <div class="form-control">
+            <label for="gender">Gender</label>
+            <select id="gender">
+              <option value="" hidden>Please select gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-control">
+            <label for="address">Alamat</label>
+            <textarea
+              name="address"
+              id="address"
+              cols="30"
+              rows="10"
+              placeholder="Jl. Istana Merdeka No.45"
+            ></textarea>
+          </div>
+          <div class="form-footer">
+            <p id="user-feedback"></p>
+            <div class="form-buttons">
+              <button type="button" class="btn" id="reset-button">Reset</button>
+              <button type="submit" class="btn primary" id="save-button">
+                Save
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <div class="container">
+      <p>Data In localStorage</p>
+      <pre id="data-localstorage"></pre>
+    </div>
+  </body>
+  <script src="./form-handlers.js"></script>
+  <script src="./explaination.js"></script>
+</html>
