@@ -18,6 +18,14 @@ const showUserData = () => {
   }
 };
 
+const resetForm = () => {
+  // clear all input
+  firstNameInput.value = "";
+  lastNameInput.value = "";
+  genderInput.value = "";
+  addressInput.value = "";
+};
+
 const handleSubmitForm = (event) => {
   event.preventDefault();
 
@@ -38,6 +46,7 @@ const handleSubmitForm = (event) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
   }
 
+  resetForm();
   showUserData();
 };
 
@@ -48,15 +57,10 @@ const resetButton = document.querySelector("#reset-button");
 const handleResetButton = (event) => {
   event.preventDefault();
 
-  // clear all input
-  firstNameInput.value = "";
-  lastNameInput.value = "";
-  genderInput.value = "";
-  addressInput.value = "";
-
   // clear localStorage
-  // localStorage.removeItem(KEY);
+  // localStorage.removeItem(STORAGE_KEY);
 
+  resetForm();
   showUserData();
 };
 
