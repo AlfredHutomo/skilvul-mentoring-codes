@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <div id="user-nav"></div>
+    </nav>
+    <a href="/details.html?id=123123">Baca Selengkapnya</a>
+  </body>
+  <script>
+    // Untuk mengupdate navigasi user
+    const updateUserNavigation = () => {
+      const currentUser = localStorage.getItem("currentUser");
+      if (!currentUser) {
+        document.getElementById("user-nav").innerHTML = `
+        <button id="login-btn">Login</button>
+      `;
+      } else {
+        document.getElementById("user-nav").innerHTML = `
+        <p>Icon</p>
+        <button id="logout-btn">Logout</button>
+      `;
+      }
+    };
+
+    // Untuk menangkap event click pada button login
+    document.addEventListener("click", (e) => {
+      const target = e.target.closest("#login-btn"); // Or any other selector.
+
+      if (target) {
+        localStorage.setItem("currentUser", JSON.stringify({ name: "Alfred" }));
+        updateUserNavigation();
+      }
+    });
+
+    // Untuk menangkap event click pada button logout
+    document.addEventListener("click", (e) => {
+      const target = e.target.closest("#logout-btn"); // Or any other selector.
+
+      if (target) {
+        localStorage.removeItem("currentUser");
+        updateUserNavigation();
+      }
+    });
+
+    // initialisasi webpage
+    updateUserNavigation();
+  </script>
+</html>
