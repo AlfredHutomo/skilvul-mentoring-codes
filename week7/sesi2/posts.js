@@ -21,4 +21,33 @@ const getPosts = () => {
     });
 };
 
+const createPost = (e) => {
+  e.preventDefault();
+
+  const content = document.getElementById("content").value;
+
+  const newPost = { content };
+
+  fetch("https://64400ae2b9e6d064be064168.mockapi.io/post", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newPost),
+  })
+    .then((res) => {
+      if (res.ok) {
+        alert("Post berhasil dibuat");
+        getPosts();
+      }
+
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+document.getElementById("post-form").addEventListener("submit", createPost);
+
 getPosts();
