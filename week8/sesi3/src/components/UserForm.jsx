@@ -29,25 +29,27 @@ const UserForm = () => {
         <div className="card">
             <h3>Create a user to mockApi</h3>
             <form onSubmit={handleSubmit}>
-                <div style={{display:"flex", flexDirection:"column"}}>
-                    <label htmlFor="username">Username</label>
-                    <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        value={username}
-                        onChange={(event) => setUsername(event.target.value)}
-                    />
-                </div>
-                <div style={{display:"flex", flexDirection:"column"}}>
-                    <label htmlFor="email">Email</label>
-                    <input 
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={(event) => setEmail(event.target.value)}
-                    />
+                <div className="card">
+                    <div style={{display:"flex", flexDirection:"column"}}>
+                        <label htmlFor="username">Username</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            value={username}
+                            onChange={(event) => setUsername(event.target.value)}
+                        />
+                    </div>
+                    <div style={{display:"flex", flexDirection:"column"}}>
+                        <label htmlFor="email">Email</label>
+                        <input 
+                            type="text"
+                            id="email"
+                            name="email"
+                            value={email}
+                            onChange={(event) => setEmail(event.target.value)}
+                        />
+                    </div>
                 </div>
                 <button type="submit">Submit</button>
             </form>
