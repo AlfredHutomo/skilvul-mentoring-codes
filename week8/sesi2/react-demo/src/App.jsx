@@ -22,11 +22,13 @@ function App() {
 
   return (
     <div>
-      {names.map((name) => (
-        <div className="card" key={name}>
-          <ClickableButton owner={name}/>
-        </div>
-      ))}
+      {
+        names.map((name) => (
+          <div className="card" key={name}>
+            <ClickableButton owner={name}/>
+          </div>
+        ))
+      }
     </div>
   )
 }
