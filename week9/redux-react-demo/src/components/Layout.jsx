@@ -8,7 +8,6 @@ const Layout = () => {
 
     const handleCreateTodo = (e) => {
         e.preventDefault();
-        
         dispatch(actions.createTodo())
     }
 
