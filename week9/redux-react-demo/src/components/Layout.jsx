@@ -6,7 +6,9 @@ const Layout = () => {
     const userInput = useSelector(state => state.todos.userInput);
     const dispatch = useDispatch();
 
-    const handleCreateTodo = () => {
+    const handleCreateTodo = (e) => {
+        e.preventDefault();
+        
         dispatch(actions.createTodo())
     }
 
@@ -16,7 +18,7 @@ const Layout = () => {
 
     return (
         <div>
-            <div className="flex gap-2 p-2 ">
+            <form className="flex gap-2 p-2" onSubmit={handleCreateTodo}>
                 <input 
                     type="text"
                     value={userInput}
@@ -24,8 +26,8 @@ const Layout = () => {
                     placeholder="Enter your todo message"
                     className="p-2 w-full border-cyan-400 border-solid border-2 rounded"
                 />
-                <button className="btn" onClick={handleCreateTodo}>Create</button>
-            </div>
+                <input type="submit" className="btn" value="Create" />
+            </form>
             <nav >
                 <ul className="flex gap-2 p-2">
                     <li >

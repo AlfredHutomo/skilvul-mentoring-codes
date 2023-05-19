@@ -7,8 +7,9 @@ import {
   Route
 } from "react-router-dom";
 
-import store from './store.js';
 import { Provider } from 'react-redux';
+import { configureStore } from "@reduxjs/toolkit";
+import todosReducer from "./features/todos/todosSlice";
 
 import "./index.css"
 
@@ -20,6 +21,12 @@ import Layout from './components/Layout.jsx';
 import CompletedPage from './pages/CompletedPage.jsx';
 import AllPage from './pages/AllPage.jsx';
 
+
+const store =  configureStore({
+  reducer: {
+    todos: todosReducer,
+  },
+});
 
 const router = createBrowserRouter(
   createRoutesFromElements(
