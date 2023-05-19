@@ -10,6 +10,7 @@ import {
 import { Provider } from 'react-redux';
 import { configureStore } from "@reduxjs/toolkit";
 import todosReducer from "./features/todos/todosSlice";
+import { loadFromLocalStorage, saveToLocalStorage } from './utils/localStorage';
 
 import "./index.css"
 
@@ -26,7 +27,10 @@ const store =  configureStore({
   reducer: {
     todos: todosReducer,
   },
+  preloadedState: loadFromLocalStorage()
 });
+
+store.subscribe(() => saveToLocalStorage(store.getState()))
 
 const router = createBrowserRouter(
   createRoutesFromElements(
