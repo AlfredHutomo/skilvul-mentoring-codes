@@ -12,11 +12,12 @@ import TodoLayout from './components/TodoLayout.jsx';
 import CompletedPage from './pages/todos/CompletedPage.jsx';
 import ActivePage from './pages/todos/ActivePage.jsx';
 import AllPage from './pages/todos/AllPage.jsx';
+import ApiPage from "./pages/ApiPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route index={true} element={<div>hellow</div>}/>
+      <Route index={true} element={<ApiPage/>}/>
       <Route path='todo' element={<TodoLayout />} errorElement={<ErrorPage />}>
         <Route index={true} element={<AllPage />} />
         <Route path='active' element={<ActivePage />} />
