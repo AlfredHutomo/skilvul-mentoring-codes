@@ -5,17 +5,19 @@ import {
 } from "react-router-dom";
 
 import HomePage from './pages/HomePage.jsx';
-import ActivePage from './pages/ActivePage.jsx';
+
 import ErrorPage from './pages/ErrorPage.jsx';
 
-import Layout from './components/Layout.jsx';
-import CompletedPage from './pages/CompletedPage.jsx';
-import AllPage from './pages/AllPage.jsx';
+import TodoLayout from './components/TodoLayout.jsx';
+import CompletedPage from './pages/todos/CompletedPage.jsx';
+import ActivePage from './pages/todos/ActivePage.jsx';
+import AllPage from './pages/todos/AllPage.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path='/' element={<Layout />} errorElement={<ErrorPage />}>
+      <Route index={true} element={<div>hellow</div>}/>
+      <Route path='todo' element={<TodoLayout />} errorElement={<ErrorPage />}>
         <Route index={true} element={<AllPage />} />
         <Route path='active' element={<ActivePage />} />
         <Route path='completed' element={<CompletedPage />} />

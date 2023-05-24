@@ -2,7 +2,7 @@ import { Link, Outlet } from "react-router-dom"
 import { actions } from '../features/todos/todosSlice';
 import { useDispatch, useSelector } from "react-redux";
 
-const Layout = () => {
+const TodoLayout = () => {
     const userInput = useSelector(state => state.todos.userInput);
     const dispatch = useDispatch();
 
@@ -30,13 +30,13 @@ const Layout = () => {
             <nav >
                 <ul className="flex gap-2 p-2">
                     <li >
-                        <Link to={"/"}>All</Link>
+                        <Link to={"/todo"}>All</Link>
                     </li>
                     <li>
-                        <Link to={"/active"}>Active</Link>
+                        <Link to={"/todo/active"}>Active</Link>
                     </li>
                     <li>
-                        <Link to={"/completed"}>Completed</Link>
+                        <Link to={"/todo/completed"}>Completed</Link>
                     </li>
                 </ul>
             </nav>
@@ -47,4 +47,4 @@ const Layout = () => {
     )
 }
 
-export default Layout
+export default TodoLayout

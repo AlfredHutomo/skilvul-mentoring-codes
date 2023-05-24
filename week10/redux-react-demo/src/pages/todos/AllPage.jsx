@@ -1,15 +1,14 @@
 import { useSelector } from "react-redux";
-import TodoCard from "../components/TodoCard";
 
-const ActivePage = () => {
+import TodoCard from "~/components/TodoCard";
+
+const AllPage = () => {
     const todos = useSelector(state => state.todos.todos);
-
-    const activeTodos = todos.filter(todo => !todo.completed)
 
     return (
         <div>
             {
-                activeTodos.map((todo, index) => (
+                todos.map((todo, index) => (
                     <TodoCard 
                         key={index}
                         todo={todo}
@@ -20,4 +19,4 @@ const ActivePage = () => {
     );
 }
 
-export default ActivePage
+export default AllPage
