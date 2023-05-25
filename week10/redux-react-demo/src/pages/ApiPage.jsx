@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
-import { getTodos, postTodo } from "../api";
+import { getTodos, postTodo } from "../utils/api";
 import ApiTodoCard from "../components/ApiTodoCard";
 import { useState } from "react";
 

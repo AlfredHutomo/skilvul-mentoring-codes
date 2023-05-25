@@ -7,8 +7,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import router from "./router";
-import { setupStore } from './store';
+import router from "./configurations/router";
+import { setupStore } from './configurations/store';
 
 import "./index.css"
 

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useMutation, useQueryClient } from "react-query"
-import { deleteTodo, updateTodo } from "../api"
+import { deleteTodo, updateTodo } from "../utils/api"
 import TodoCard from "./TodoCard";
 
 const ApiTodoCard = ({

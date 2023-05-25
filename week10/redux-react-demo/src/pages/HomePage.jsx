@@ -31,8 +31,6 @@ const HomePage = () => {
         setTodos(currentTodos => currentTodos.filter(todos => todos.id !== id))
     }
 
-    console.log({ todos })
-
     return (
         <div className="max-w-lg">
             <div className="flex gap-2 p-2 ">
@@ -61,7 +59,6 @@ const HomePage = () => {
                                 <div></div>
                                 <button className="btn" onClick={() => handleRemoveTodo(todo.id)}>Remove</button>
                             </div>
-
                         </div>
                     ))
                 }
