@@ -10,7 +10,7 @@ import {
 import router from "./configurations/router";
 import { setupStore } from './configurations/store';
 
-import "./index.css"
+import "./styles/index.css"
 
 const queryClient = new QueryClient;
 const store = setupStore();
