@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { BsFillTrashFill } from "react-icons/bs"
 import { useMutation, useQueryClient } from "react-query"
 import { deleteTodo, updateTodo } from "../api"
+import TodoCard from "./TodoCard";
 
 const ApiTodoCard = ({
     todo,
@@ -10,7 +10,7 @@ const ApiTodoCard = ({
     const updateTodoMutation = useMutation(updateTodo, {
         onSuccess: () => {
           // Invalidate and refetch
-          queryClient.invalidateQueries('todos')
+          queryClient.invalidateQueries('todos');
         },
     });
 
@@ -34,22 +34,12 @@ const ApiTodoCard = ({
     }   
 
     return (
-        <div className="flex justify-between p-2 bg-slate-300 rounded mb-4 items-center">
-        <p>{todo.content}</p>
-        <div className="flex gap-1 items-center">
-            <input
-                type="checkbox"
-                name="completed"
-                checked={todo.completed}
-                onChange={() => handleToggle(todo)}
-            />
-            <label htmlFor="completed">Completed</label>
-            <div></div>
-            <button className="btn" onClick={() => handleRemove(todo)}>
-                <BsFillTrashFill/>
-            </button>
-        </div>
-    </div>
+        <TodoCard 
+            content={todo.content}
+            completed={todo.completed}
+            onToggle={() => handleToggle(todo)}
+            onRemove={() => handleRemove(todo)}
+        />
     )
 }
 

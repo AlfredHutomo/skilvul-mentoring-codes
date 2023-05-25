@@ -7,7 +7,7 @@ const ApiPage = () => {
     const [userInput, setUserInput] = useState("");
 
     const queryClient = useQueryClient();
-    const { isLoading, data: todos } = useQuery("todos", getTodos);
+    const { data: todos, isLoading, isFetching } = useQuery("todos", getTodos);
 
     const postTodoMutation = useMutation(postTodo, {
         onSuccess: () => {
@@ -23,10 +23,10 @@ const ApiPage = () => {
         postTodoMutation.mutate({
             content: userInput
         });
+
+        setUserInput("");
     }
-
-    if (isLoading) return <h1>Loading...</h1>
-
+    
     return (
         <div>
             <form className="flex gap-2 p-2" onSubmit={handleCreateTodo}>
@@ -39,9 +39,15 @@ const ApiPage = () => {
                 />
                 <input type="submit" className="btn" value="Create" />
             </form>
-            <p className="p-2">Todos Count: {todos?.length}</p>
             <div className="p-2">
-                {todos?.map(todo => <ApiTodoCard todo={todo} key={todo.id}/>)}
+            {
+                isLoading || isFetching ? <h1>Loading...</h1> : (
+                <>
+                    <p className="mb-2">Todos Count: {todos?.length}</p>
+                    {todos?.map(todo => <ApiTodoCard todo={todo} key={todo.id}/>)}
+                </>
+                )
+            }
             </div>
         </div>
     )

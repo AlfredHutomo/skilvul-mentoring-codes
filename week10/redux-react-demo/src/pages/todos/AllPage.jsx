@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import TodoCard from "~/components/TodoCard";
+import ReduxTodoCard from "../../components/ReduxTodoCard";
 
 const AllPage = () => {
     const todos = useSelector(state => state.todos.todos);
@@ -9,7 +9,7 @@ const AllPage = () => {
         <div>
             {
                 todos.map((todo, index) => (
-                    <TodoCard 
+                    <ReduxTodoCard 
                         key={index}
                         todo={todo}
                     />

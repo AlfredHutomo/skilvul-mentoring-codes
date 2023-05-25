@@ -1,11 +1,11 @@
+const API_ENDPOINT = "https://64400ae2b9e6d064be064168.mockapi.io";
+
 export const getTodos = () => {
-  return fetch("https://64400ae2b9e6d064be064168.mockapi.io/todos").then(
-    (response) => response.json()
-  );
+  return fetch(`${API_ENDPOINT}/todos`).then((response) => response.json());
 };
 
 export const postTodo = (todo) => {
-  return fetch("https://64400ae2b9e6d064be064168.mockapi.io/todos", {
+  return fetch(`${API_ENDPOINT}/todos`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -15,7 +15,7 @@ export const postTodo = (todo) => {
 };
 
 export const updateTodo = (todo) => {
-  return fetch(`https://64400ae2b9e6d064be064168.mockapi.io/todos/${todo.id}`, {
+  return fetch(`${API_ENDPOINT}/todos/${todo.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -25,7 +25,7 @@ export const updateTodo = (todo) => {
 };
 
 export const deleteTodo = (todo) => {
-  return fetch(`https://64400ae2b9e6d064be064168.mockapi.io/todos/${todo.id}`, {
+  return fetch(`${API_ENDPOINT}/todos/${todo.id}`, {
     method: "DELETE",
   }).then((response) => response.json());
 };

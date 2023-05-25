@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import TodoCard from "~/components/TodoCard";
+import ReduxTodoCard from "../../components/ReduxTodoCard";
 
 const CompletedPage = () => {
     const todos = useSelector(state => state.todos.todos);
@@ -10,7 +10,7 @@ const CompletedPage = () => {
         <div>
             {
                 completedTodos.map((todo, index) => (
-                    <TodoCard 
+                    <ReduxTodoCard 
                         key={index}
                         todo={todo}
                     />
