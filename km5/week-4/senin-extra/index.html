@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#">
+      <input class="input-name" type="text" placeholder="Input nama anda" />
+      <button class="btn-primary">Register</button>
+    </form>
+  </body>
+  <style>
+    /* Akan selalu set ini di awal */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 20px;
+    }
+
+    .input-name {
+      padding: 4px 8px;
+    }
+
+    button.btn-primary {
+      padding: 4px 8px;
+
+      background-color: #777777;
+      color: aliceblue;
+
+      border: none;
+      cursor: pointer;
+
+      transition: all 300ms ease-in-out;
+    }
+
+    button.btn-primary:hover {
+      /* padding: 8px 16px; */
+      background-color: #9f1f1f;
+
+      transition: all 300ms ease-in-out;
+    }
+  </style>
+  <script>
+    let counter = 0;
+    const registerButton = document.querySelector("button.btn-primary");
+    const nameInput = document.querySelector("input.input-name");
+
+    console.log(nameInput);
+
+    registerButton.addEventListener("click", () => {
+      counter += 1;
+      console.log("Hello " + counter);
+    });
+
+    registerButton.addEventListener("click", () => {
+      console.log("Halo " + nameInput.value);
+    });
+
+    nameInput.addEventListener("change", () => {
+      console.log("Data input berubah >> " + nameInput.value);
+    });
+  </script>
+</html>
