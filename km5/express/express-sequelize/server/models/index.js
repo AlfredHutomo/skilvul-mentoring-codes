@@ -7,13 +7,19 @@ const sequelize = new Sequelize({
   storage: dbConfig.storage,
 });
 
+// define semua models yang ada pada aplikasi
+const Booking = require("./booking.model")(sequelize);
+const User = require("./user.model")(sequelize);
+
+// define relasi antar model
+User.hasMany(Booking);
+Booking.belongsTo(User);
+
 const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
-
-// define semua models yang ada pada aplikasi
-db.booking = require("./booking.model")(sequelize);
-db.user = require("./user.model")(sequelize);
+db.booking = Booking;
+db.user = User;
 
 module.exports = db;

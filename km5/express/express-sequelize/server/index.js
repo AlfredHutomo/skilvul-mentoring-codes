@@ -10,7 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 
 const db = require("./models");
 // db.sequelize untuk sync database pada saat server di mulai
-db.sequelize.sync();
+// Jika kita buat force: true data di dalam database akan di override untuk melakukan update db
+// Jika server sudah di deploy ke production matikan force: true agar tidak kehilangan data
+db.sequelize.sync({ force: false });
 
 const bookingRouter = require("./routers/booking.router");
 const userRouter = require("./routers/user.router");
