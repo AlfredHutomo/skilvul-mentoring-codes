@@ -32,13 +32,13 @@ exports.create = (req, res) => {
   // proses menyimpan kedalam database
   Booking.create(newBooking)
     .then((data) => {
-      res.json({
+      return res.json({
         message: "Booking created successfully.",
         data: data,
       });
     })
     .catch((err) => {
-      res.status(500).json({
+      return res.status(500).json({
         message:
           err.message || "Some error occurred while creating the booking.",
         data: null,
@@ -50,13 +50,13 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
   Booking.findAll()
     .then((books) => {
-      res.json({
+      return res.json({
         message: "Booking retrieved successfully.",
         data: books,
       });
     })
     .catch((err) => {
-      res.status(500).json({
+      return res.status(500).json({
         message: err.message || "Some error occurred while retrieving booking.",
         data: null,
       });
@@ -71,19 +71,19 @@ exports.update = (req, res) => {
   })
     .then((num) => {
       if (num == 1) {
-        res.json({
+        return res.json({
           message: "Booking updated successfully.",
           data: req.body,
         });
       } else {
-        res.json({
+        return res.json({
           message: `Cannot update booking with id=${id}. Maybe booking was not found or req.body is empty!`,
           data: req.body,
         });
       }
     })
     .catch((err) => {
-      res.status(500).json({
+      return res.status(500).json({
         message:
           err.message || "Some error occurred while updating the booking.",
         data: null,
@@ -99,19 +99,19 @@ exports.delete = (req, res) => {
   })
     .then((num) => {
       if (num == 1) {
-        res.json({
+        return res.json({
           message: "Booking deleted successfully.",
           data: req.body,
         });
       } else {
-        res.json({
+        return res.json({
           message: `Cannot delete booking with id=${id}. Maybe booking was not found!`,
           data: req.body,
         });
       }
     })
     .catch((err) => {
-      res.status(500).json({
+      return res.status(500).json({
         message:
           err.message || "Some error occurred while deleting the booking.",
         data: null,
@@ -123,13 +123,13 @@ exports.delete = (req, res) => {
 exports.findOne = (req, res) => {
   Booking.findByPk(req.params.id)
     .then((booking) => {
-      res.json({
+      return res.json({
         message: "Booking retrieved successfully.",
         data: booking,
       });
     })
     .catch((err) => {
-      res.status(500).json({
+      return res.status(500).json({
         message: err.message || "Some error occurred while retrieving booking.",
         data: null,
       });

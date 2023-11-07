@@ -34,13 +34,13 @@ exports.reqister = (req, res) => {
   // proses menyimpan kedalam database
   User.create(newUser)
     .then((data) => {
-      res.json({
+      return res.json({
         message: "User created successfully.",
         data: data,
       });
     })
     .catch((err) => {
-      res.status(500).json({
+      return res.status(500).json({
         message: err.message || "Some error occurred while creating new user.",
         data: null,
       });
@@ -77,7 +77,7 @@ exports.login = (req, res) => {
       });
     })
     .catch((err) => {
-      res.status(500).json({
+      return res.status(500).json({
         message: err.message || "Some error occurred while logging in user.",
         data: null,
       });
