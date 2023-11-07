@@ -1,10 +1,9 @@
-const dbConfig = require("../config/db.config.js");
 const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize({
-  host: dbConfig.HOST,
+  // host: HOST,
   dialect: "sqlite",
-  storage: dbConfig.storage,
+  storage: "./temp/data.sqlite",
 });
 
 // define semua models yang ada pada aplikasi
