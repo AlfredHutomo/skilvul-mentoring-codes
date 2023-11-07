@@ -31,7 +31,23 @@ exports.reqister = (req, res) => {
     username: req.body.username,
   };
 
-  // proses menyimpan kedalam database
+  // proses menyimpan kedalam
+  /** ini penulisan async/await
+  try {
+    const data = await User.create(newUser);
+
+    return res.json({
+      message: "User created successfully.",
+      data: data,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      message: err.message || "Some error occurred while creating new user.",
+      data: null,
+    });
+  }
+  */
+
   User.create(newUser)
     .then((data) => {
       return res.json({

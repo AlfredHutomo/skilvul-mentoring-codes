@@ -1,7 +1,7 @@
 const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize({
-  // host: HOST,
+  // host: process.env.DB_CONNECTION_STRING,
   dialect: "sqlite",
   storage: "./temp/data.sqlite",
 });
