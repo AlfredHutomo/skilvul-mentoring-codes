@@ -4,21 +4,33 @@ const Booking = db.booking;
 // CREATE: untuk enambahkan data kedalam tabel booking
 exports.create = (req, res) => {
   // validasi request body
-  if (!req.body.title) {
+  if (!req.body.description) {
     return res.status(400).send({
-      message: "Title can not be empty",
+      message: "Decription can not be empty",
+    });
+  }
+
+  if (!req.body.date) {
+    return res.status(400).send({
+      message: "Date can not be empty",
+    });
+  }
+
+  if (!req.body.userId) {
+    return res.status(400).send({
+      message: "UserId can not be empty",
     });
   }
 
   // initialisasi object booking baru
-  const booking = {
-    title: req.body.title,
+  const newBooking = {
+    date: req.body.date,
     description: req.body.description,
-    published: req.body.published ? req.body.published : false,
+    userId: req.body.userId,
   };
 
   // proses menyimpan kedalam database
-  Booking.create(booking)
+  Booking.create(newBooking)
     .then((data) => {
       res.json({
         message: "Booking created successfully.",
