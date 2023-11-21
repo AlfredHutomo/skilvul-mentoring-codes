@@ -3,6 +3,8 @@ import UsernameText from "./components/UsernameText";
 import useUser from "./hooks/useUser";
 import Navbar from "./components/Navbar";
 import ApiUser from "./components/ApiUser";
+import DoctorList from "./components/DoctorList";
+import ActiveDoctorList from "./components/ActiveDoctorList";
 
 function App() {
   const { isLoggedIn, loginUser, logoutUser } = useUser();
@@ -14,10 +16,12 @@ function App() {
       {isLoggedIn ? (
         <button onClick={() => logoutUser()}>logout</button>
       ) : (
-        <button onClick={() => loginUser("Hatami")}>login user</button>
+        <button onClick={() => loginUser("Fayza")}>login user</button>
       )}
       <UsernameText />
       <ApiUser />
+      <DoctorList />
+      <ActiveDoctorList />
     </div>
   );
 }
